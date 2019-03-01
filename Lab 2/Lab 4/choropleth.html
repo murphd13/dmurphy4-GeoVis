@@ -66,7 +66,7 @@ var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 var opacity = 1;
 var polygoncolors;
 
-var colorsArray = colorbrewer.YlOrRd[5].map(function(rgb) { return d3.hsl(rgb); });
+var colorsArray = colorbrewer.YlOrBr[5].map(function(rgb) { return d3.hsl(rgb); });
 
 //time series
 var margin = {
@@ -85,14 +85,13 @@ d3.json("data/TruckStop.json", function(geoShape) {
 		myarr.push(+d.properties[attributeName]);
 	});
 
-	// Classifies attrubute data (domain) to classes (range)
 	polygoncolors = d3.scaleQuantile()
 	.range(colorsArray)
 	.domain(myarr);
 
 	//create map legend
 	var legendsvg = d3.select("#legend").append("svg").attr("width",
-	300).attr("height",300);
+	400).attr("height",400);
 
 	legendsvg.append("g")
 	.attr("class", "legendQuant")
@@ -101,8 +100,8 @@ d3.json("data/TruckStop.json", function(geoShape) {
 	var legend = d3.legendColor()
 	.labelFormat(d3.format(".3f"))
 	.useClass(false)
-	.title("")
-	.titleWidth(300)
+	.title("Truck Stops in the United States")
+	.titleWidth(400)
 	.scale(polygoncolors);
 
 	legendsvg.select(".legendQuant")
@@ -114,7 +113,8 @@ d3.json("data/TruckStop.json", function(geoShape) {
 	}), path = d3.geoPath().projection(transform).pointRadius(6);
 
 	// create path elements for each of the features
-	polygons = g.selectAll("path").data(geoShape.features).enter().append("path");
+	polygons = g.selectAll("path").data(geoShape.features).enter()
+	.append("path");
 
 	map.on("viewreset", resetMap);
 
@@ -132,7 +132,7 @@ d3.json("data/TruckStop.json", function(geoShape) {
 		d3.select(legenddiv).select("svg").remove();
 
 		var legendsvg = d3.select(legenddiv).append("svg").attr("width",
-		300).attr("height",300);
+		400).attr("height",300);
 
 		legendsvg.append("g")
 		.attr("class", "legendQuant")
