@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Coordinated Multivariate Visualization</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"> -->
+  <link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+  <script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+
+  <!-- D3.js -->
+  <link rel="stylesheet" href="css/d3.parcoords.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="js/d3.parcoords.js"></script>
+  <script src="js/colorbrewer.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-default">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" href="https://geog3540.github.io/spr2016/">Geog 3540</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="defaultNavbar1">
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://github.com/ryan-p-larson/CV/raw/master/Ryan-Larson-CV.pdf">Resume</a></li>
+            <li class="divider"></li>
+            <li><a href="mailto:ryan-p-larson@uiowa.edu">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<div style="height:0px;" id="info-label" class="col-md-6 portfolio-item"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+<!-- Page Header -->
+
+<div class="panel panel-default">
+<div class="panel-body">
+	<div class="row panel-header">
+		<div class="col-lg-12">
+			<h1 class="page-header">Parallel Coordinates for World Age Groups.</h1>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-9">
+		<p>The map you're looking at displays the world's age distributions in a multivariate manner. I was inspired by the somehwat-common <a href="http://cdn.static-economist.com/sites/default/files/20110514_WOC726.gif">population prymaids</a> from various sources online. Unfortunately while the prymaid allows you a finer grained analysis, the form doesn't lend itself to integrating more than one country at a time. The parallel coordinates and map combination neatly follows Scheiderman's mantra.</p>
+
+    <ul>
+      <li>P.C. enables you (the user) an <b>overview</b> of <i>all</i> the data. Over 140 countries are depicted, instead of the P.P.'s 1. Immediately you can see the anamalous spikes from African countries high child population.</li>
+      <li>There are three primary points of interaction; brushing P.C. axes, the dropdown attribute selection, and the map hovering. Each of them aid in assisting the user to get the data they <i>need</i> by <b>zooming and filtering</b> the data.</li>
+      <li>The map tooltip interaction allows precise information, thus serving as a proxy for <b>details on demand</b>.</li>
+    </ul>
+
+    <p>Overall, the world's population distribution has very clear trends: developed nations have a much more balanced distribution, if not skewed toward older groups. Undeveloped nations are bottom heavy, with a lot of children. The data was taken from the World Bank's Health Nutrition and Population Statistics estimates 2015 survey data. Some countries are incomplete, and will be greyed out. All of the data has been normalized, so the values you see at the bottom are the portions of the country whose population is made up of that age group.</p>
+	  </div>
+	  <div class="col-lg-2">
+        <div class="row">
+		        <div id="legend"></div>
+            <br><br>
+            <div>
+              <p>In case GitHub Pages incorrectly displays the map, click below!</p>
+              <form method="get" action="data/lab7-larson.zip">
+              <button type="submit">Download .zip</button>
+              </form>
+            </div>
+	  </div>
+
+	</div>
+	  <!-- /.row -->
+
+	  <!-- /.row -->
+	  <!-- Projects Row -->
+	  <div class="row">
+		<div class="col-lg-12">
+		  <div class="col-md-12 portfolio-item">
+			<div id="map"/>
+		  </div>
+		</div>
+	  </div>
+	  <!-- /.row -->
+
+    <br style="margin-top:10px;">
+
+	  <!-- Projects Row -->
+	  <div class="row">
+		<div class="col-lg-12 portfolio-item">
+		  <div class="col-md-12 portfolio-item">
+			<div id="pcp" class="parcoords"/>
+		  </div>
+		</div>
+	  </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <p><b>Changes:</b> Mouseover now highlights the parallel coordinate plot! Some minor formatting tweaks otherwise.</p>
+      </div>
+    </div>
+
+</div>
+</div>
+</div><!-- /.container -->
+
+<hr>
+<br>
+
+<!-- Footer -->
+  <footer>
+	<div class="row">
+	  <div class="col-lg-12 text-center">
+		<p>Copyright &copy; Ryan Larson 2017</p>
+	  </div>
+	</div>
+	<!-- /.row -->
+  </footer>
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!--link to main JavaScript file-->
+<script src="js/main.js"></script>
+
+  </body>
+
+  </html>
