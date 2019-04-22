@@ -2,11 +2,11 @@
 var initialColors = colorbrewer.Reds[8];
 
 //TODO: change the name and id field of your data. These will be used to link the pcp with the map, and also display labels
-var key = "County";
+var key = "NAME";
 var idfield = "GEOID";
 
 //TODO: change the name of the attributes to include in the parallel coordinate plot
-var attNames = ["deathRate", "pctSmokers", "pctObese", "healthCosts"];
+var attNames = ["total", "num_1", "num_2", "num_3", "num_4", "num_5", "num_6", "num_7", "num_8", "num_9", "num_10"];
 
 var pcpdata = [];
 var expressed;
@@ -23,7 +23,7 @@ function initialize(){
 
 function setMap(){
   //TODO: change the center of your map in setView, and change the zoom level (currently set as 2) to fit your dataset
-  var map = new L.map('map').setView([15, -10], 2)
+  var map = new L.map('map').setView([38, -97], 3)
   .addLayer(new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {attribution: 'Stamen'}
 ));
@@ -32,7 +32,7 @@ var svg = d3.select(map.getPanes().overlayPane).append("svg"),
 g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
 //d3.json("data/iowa_counties.json", function(error, jsonData) {
-d3.json("data/out.geojson", function(error, jsonData) {
+d3.json("data/json/Total.json", function(error, jsonData) {
   if (error) throw error;
 
   //create an attribute array (pcpdata)
