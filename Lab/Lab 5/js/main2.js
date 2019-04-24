@@ -112,7 +112,7 @@ d3.json("data/json/Total.json", function(error, jsonData) {
     //add a select element for the dropdown menu
     var dropdown = d3.select("#legend")
     .append("div")
-    .html("<h4>Select Age Group: </h4>")
+    .html("<h4>Export Ranking: </h4>")
     .append("select")
     .on("change", function(){ changeAttribute(this.value, jsonData) }); //changes expressed attribute
 
@@ -122,7 +122,7 @@ d3.json("data/json/Total.json", function(error, jsonData) {
     .enter().append("option")
     .attr("value", function(d){ return d })
     .text(function(d) {
-      d = d[0].toUpperCase() + d.substring(1,3) + d.substring(3) + " yrs";
+      d = d[0].toUpperCase() + d.substring(1,3) + d.substring(3) + " export";
       return d;
     });
   };
