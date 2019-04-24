@@ -7,7 +7,7 @@ var idfield = "FIPS";
 
 //TODO: change the name of the attributes to include in the parallel coordinate plot
 var attNames = ["Total_Norm", "1_Norm", "2_Norm", "3_Norm", "4_Norm",  "5_Norm", "6_Norm", "7_Norm", "8_Norm", "9_Norm", "10_Norm",];
-
+var attDiscrip = ["NAME", "name_1", "name_2", "name_3", "name_4", "name_5", "name_6", "name_7", "name_8", "name_9", "name_10"];
 var pcpdata = [];
 var expressed;
 var regions;
@@ -207,8 +207,8 @@ d3.json("data/json/NormData.json", function(error, jsonData) {
   function highlight(data){
     // Variables
     var props = data.properties; //json properties
-    console.log(props[expressed]);
-    var labelAttribute = "<h1>$"+ roundRight(props[expressed]) + "</h1><br><b>per capita "; //+ expressed + "</b>:" + props[key]+ ""; //label content
+    //console.log(props[expressed]);
+    var labelAttribute = "<h1>$"+ roundRight(props[expressed]) + "</h1><br><b>per capita ";// + "</h1><br>" + props[key]+ ""; //label content
     var labelName = data.id;
 
     // Append label
