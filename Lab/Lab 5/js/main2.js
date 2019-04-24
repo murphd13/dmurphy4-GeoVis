@@ -36,16 +36,12 @@ d3.json("data/json/NormData.json", function(error, jsonData) {
   if (error) throw error;
 
   //create an attribute array (pcpdata)
-  jsonData.features.forEach(function(d){
-    console.log(d);
-    d.id = +d.properties[idfield];
-    d.properties[idfield] = +d.properties[idfield];
-    attNames.forEach(function(att){
-      d.properties[att] = +d.properties[att];
-    });
-    pcpdata.push(d.properties);
+  jsonData.features.forEach(function(d){//attribute names are derived from properties of the first json object
+  for (var k in d.properties){
+  	if(attNames.indexOf(k) == -1)				delete d.properties[k]
+  	}
+  	tempProperties = d.properties;		pcpdata.push(d.properties);
   });
-  expressed = attNames[0];
   var recolorMap = colorScale(jsonData.features);
 
   // Add geography variables
