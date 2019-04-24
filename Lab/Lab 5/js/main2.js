@@ -208,7 +208,7 @@ d3.json("data/json/NormData.json", function(error, jsonData) {
     // Variables
     var props = data.properties; //json properties
     console.log(props[expressed]);
-    var labelAttribute = "<h1>"+ roundRight(props[expressed]) + "</h1><br><b>per person " + expressed + "</b>:" + props[key]+ ""; //label content
+    var labelAttribute = "<h1>"+ roundRight(props[expressed]) + "</h1><br><b>per capita " + expressed + "</b>:" + props[key]+ ""; //label content
     var labelName = data.id;
 
     // Append label
