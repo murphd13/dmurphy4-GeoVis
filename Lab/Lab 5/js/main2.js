@@ -1,5 +1,5 @@
 //TODO: change the colors
-var initialColors = colorbrewer.Reds[5];
+var initialColors = colorbrewer.Reds[8];
 
 //TODO: change the name and id field of your data. These will be used to link the pcp with the map, and also display labels
 var key = "NAME";
