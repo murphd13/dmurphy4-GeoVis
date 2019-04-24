@@ -198,7 +198,7 @@ d3.json("data/json/NormData.json", function(error, jsonData) {
 
   function roundRight(number){
     if (number) {
-      return number.toPrecision(4);
+      return number.toPrecision(6);
     } else {
       return "Null";
     }
