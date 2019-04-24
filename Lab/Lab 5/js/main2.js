@@ -2,8 +2,8 @@
 var initialColors = colorbrewer.Reds[8];
 
 //TODO: change the name and id field of your data. These will be used to link the pcp with the map, and also display labels
-var key = "NAME";
-var idfield = "FIPS";
+var key = "NAME", "name_1", "name_2", "name_3", "name_4", "name_5", "name_6", "name_7", "name_8", "name_9", "name_10" ;
+var idfield = "NAME";
 
 //TODO: change the name of the attributes to include in the parallel coordinate plot
 var attNames = ["Total_Norm", "1_Norm", "2_Norm", "3_Norm", "4_Norm",  "5_Norm", "6_Norm", "7_Norm", "8_Norm", "9_Norm", "10_Norm",];
