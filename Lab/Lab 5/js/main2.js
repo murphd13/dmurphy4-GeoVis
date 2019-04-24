@@ -32,7 +32,7 @@ var svg = d3.select(map.getPanes().overlayPane).append("svg"),
 g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
 //d3.json("data/iowa_counties.json", function(error, jsonData) {
-d3.json("data/json/Total.json", function(error, jsonData) {
+d3.json("data/json/NormData.json", function(error, jsonData) {
   if (error) throw error;
 
   //create an attribute array (pcpdata)
