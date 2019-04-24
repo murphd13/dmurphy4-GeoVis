@@ -207,7 +207,7 @@ d3.json("data/json/NormData.json", function(error, jsonData) {
   function highlight(data){
     // Variables
     var props = data.properties; //json properties
-    var labelAttribute = "<h1>"+ roundRight(props[expressed]) + "%</h1><br><b>Population " + expressed + "</b>:" + props[key]+ ""; //label content
+    var labelAttribute = "<h1>$"+ roundRight(props[expressed]) + "</h1><br><b>per person " + expressed + "</b>:" + props[key]+ ""; //label content
     var labelName = data.id;
 
     // Append label
