@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GEOG:3540 Final Project</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"> -->
+  <link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+  <script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+
+  <!-- D3.js -->
+  <link rel="stylesheet" href="css/d3.parcoords.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="js/d3.parcoords.js"></script>
+  <script src="js/colorbrewer.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-default">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" href="https://github.com/geog3540/">Geog 3540</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="defaultNavbar1">
+      <ul class="nav navbar-nav">
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<div style="height:0px;" id="info-label" class="col-md-6 portfolio-item"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+<!-- Page Header -->
+
+<div class="panel panel-default">
+<div class="panel-body">
+	<div class="row panel-header">
+		<div class="col-lg-12">
+			<h1 class="page-header">Climate Data and Crime Rates in the United States</h1>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-9">
+		<p>For our final project, we decided to map and compare Temperature, Precipitation, Crime Rates, and FEMA Declarations by state.</p>
+
+    <ul>
+      <li>Using the dropdown menu, you can view each dataset in choropleth form. </li>
+      <li>VCR: Violent Crimes per 100,000 people</li>
+      <li>PCR: Property Crimes per 100,000 people</li>
+      <li>FEMA: FEMA declarations by state per year </li>
+      <li>TEMP: Yearly average temperature by state in degrees Fahrenheit</li>
+      <li>PRECIP: Yearly average precipitation by state in inches </li>
+    </ul>
+
+    <p>Overall, we have noticed that there is a visible correlation between temperature, precipitation, and crime rates, but not necessarily FEMA declarations. The majority of this data appears in the Southeastern United States, which naturally have a higher average temperature and preciptation rate due to their geographic location. </p>
+    <p>Natural Disasters and Crime</p>
+
+<p>There are been many different opinions on whether natural disasters increase or decrease crime rates in areas where they strike. Use of sociology and criminology are areas often used to asses this relationship in the wake of natural disaster; we chose to explore the spatial relationship between the two. Since the timing of the disaster and when crime rates are analyzed can play a factor, our project opted to look at the amount of natural disasters in areas of the United States and how it was spatially related to county crime rates. Portraying this data spatially helps the user see any relationship between the two categories without having to explore specific instances of disasters or crimes occurring.</p>
+
+<p>References: Prelog, Andrew J. (2015). Modeling the Relationship between Natural Disasters and Crime in the United States. Nat. Hazards Rev., 2016, 17(1): 04015011. doi: http://dx.doi.org/10.1061/(ASCE)NH.1527-6996.0000190</p>
+    <p>The Parallel Coordinate Plot state labels are difficult to read, use the cursor to hover over a state and see which line becomes highlighted instead. </p>
+    </div>
+	  <div class="col-lg-2">
+        <div class="row">
+		        <div id="legend"></div>
+            <br><br>
+	  </div>
+
+	</div>
+	  <!-- /.row -->
+
+	  <!-- /.row -->
+	  <!-- Projects Row -->
+	  <div class="row">
+		<div class="col-lg-12">
+		  <div class="col-md-12 portfolio-item">
+			<div id="map"/>
+		  </div>
+		</div>
+	  </div>
+	  <!-- /.row -->
+
+    <br style="margin-top:10px;">
+
+	  <!-- Projects Row -->
+	  <div class="row">
+		<div class="col-lg-12 portfolio-item">
+		  <div class="col-md-12 portfolio-item">
+			<div id="pcp" class="parcoords"/>
+		  </div>
+		</div>
+	  </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+      </div>
+    </div>
+
+</div>
+</div>
+</div><!-- /.container -->
+
+<hr>
+<br>
+
+<!-- Footer -->
+  <footer>
+	<div class="row">
+	  <div class="col-lg-12 text-center">
+		<p>Copyright &copy; Brandon Kilcoyne, Allison Rodish, Daniel Murphy, Karin Johnson 2019</p>
+	  </div>
+	</div>
+	<!-- /.row -->
+  </footer>
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!--link to main JavaScript file-->
+<script src="js/main2.js"></script>
+
+  </body>
+
+  </html>
